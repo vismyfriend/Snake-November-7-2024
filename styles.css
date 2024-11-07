@@ -1,0 +1,67 @@
+@import url(./vendor/normalize.css);
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ccbebe; /* Цвет фона страницы */
+}
+canvas {
+    margin-top: 5px;
+    border: 1px solid black;
+    background: linear-gradient(to bottom, #a0d8ef, #ffffff); /* Градиентный фон */
+    border-radius: 20px;
+}
+#letterContainer {
+    margin-top: 10px;
+    font-size: 20px;
+}
+#controls {
+    margin: 10px;
+    position: relative; /* Позволяет позиционировать кнопки */
+    width: 100px; /* Ширина контейнера */
+    height: 100px; /* Высота контейнера */
+    display: flex;
+    justify-content: center; /* Центрирование горизонтальных кнопок */
+    align-items: center; /* Центрирование вертикальных кнопок */
+}
+.direction-button {
+    background-color: #1b1b1b; /* Темный фон */
+    color: white; /* Белый текст */
+    border: none; /* Без границ */
+    border-radius: 50%; /* Круглая форма */
+    width: 40px; /* Ширина кнопки */
+    height: 40px; /* Высота кнопки */
+    font-size: 24px; /* Размер текста */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+    position: absolute; /* Позволяет позиционировать кнопки */
+}
+.direction-button:hover {
+    background-color: #3b3b3b; /* Светлее при наведении */
+}
+.direction-button:active {
+    background-color: #5b5b5b; /* Еще светлее при нажатии */
+}
+/* Позиционирование кнопок */
+#up {
+    top: 0; /* Выровнено по верхнему краю */
+    left: 50%; /* Центрировано по горизонтали */
+    transform: translateX(-50%); /* Центрирование по горизонтали */
+}
+#down {
+    bottom: 0; /* Выровнено по нижнему краю */
+    left: 50%; /* Центрировано по горизонтали */
+    transform: translateX(-50%); /* Центрирование по горизонтали */
+}
+#left {
+    left: 0; /* Выровнено по левому краю */
+    top: 50%; /* Центрировано по вертикали */
+    transform: translateY(-50%); /* Центрирование по вертикали */
+}
+#right {
+    right: 0; /* Выровнено по правому краю */
+    top: 50%; /* Центрировано по вертикали */
+    transform: translateY(-50%); /* Центрирование по вертикали */
+}
