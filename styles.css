@@ -1,5 +1,4 @@
 @import url(./vendor/normalize.css);
-
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -19,18 +18,15 @@ canvas {
     font-size: 20px;
 }
 #controls {
-    margin: 10px;
-    position: relative; /* Позволяет позиционировать кнопки */
-    width: 150px; /* Ширина контейнера */
-    height: 150px; /* Высота контейнера */
     display: flex;
-    justify-content: center; /* Центрирование горизонтальных кнопок */
-    align-items: center; /* Центрирование вертикальных кнопок */
-    text-align: center;
+    flex-direction: column; /* Вертикальное размещение */
+    align-items: center; /* Центрирование по горизонтали */
+}
+.horizontal-controls {
+    display: flex; /* Горизонтальное размещение кнопок в ряд */
 }
 .direction-button {
     background-color: #1b1b1b; /* Темный фон */
-    
     color: white; /* Белый текст */
     border: none; /* Без границ */
     border-radius: 50%; /* Круглая форма */
@@ -39,32 +35,18 @@ canvas {
     font-size: 24px; /* Размер текста */
     cursor: pointer; /* Курсор при наведении */
     transition: background-color 0.3s; /* Плавный переход цвета фона */
-    position: absolute; /* Позволяет позиционировать кнопки */
+    display: flex; /* Используем flexbox для кнопок */
+    align-items: center; /* Центрируем текст по вертикали */
+    justify-content: center; /* Центрируем текст по горизонтали */
+    margin: 5px; /* Отступ между кнопками */
+}
+/* Увеличиваем отступ между горизонтальными кнопками */
+.horizontal-controls .direction-button {
+    margin: 0 25px; /* Установите нужное значение для отступа */
 }
 .direction-button:hover {
     background-color: #3b3b3b; /* Светлее при наведении */
 }
 .direction-button:active {
     background-color: #5b5b5b; /* Еще светлее при нажатии */
-}
-/* Позиционирование кнопок */
-#up {
-    top: 0; /* Выровнено по верхнему краю */
-    left: 50%; /* Центрировано по горизонтали */
-    transform: translateX(-50%); /* Центрирование по горизонтали */
-}
-#down {
-    bottom: 0; /* Выровнено по нижнему краю */
-    left: 50%; /* Центрировано по горизонтали */
-    transform: translateX(-50%); /* Центрирование по горизонтали */
-}
-#left {
-    left: 0; /* Выровнено по левому краю */
-    top: 50%; /* Центрировано по вертикали */
-    transform: translateY(-50%); /* Центрирование по вертикали */
-}
-#right {
-    right: 0; /* Выровнено по правому краю */
-    top: 50%; /* Центрировано по вертикали */
-    transform: translateY(-50%); /* Центрирование по вертикали */
 }
