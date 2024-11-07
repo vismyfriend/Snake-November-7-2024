@@ -1,4 +1,5 @@
 const canvas = document.getElementById('gameCanvas');
+const startAgainButton = document.getElementById('startAgain');
 const ctx = canvas.getContext('2d');
 
 // Загружаем фоновое изображение
@@ -11,7 +12,7 @@ let snake = [{ x: 9 * box, y: 9 * box }]; // Начальная позиция �
 let direction; // Направление движения
 let food; // Позиция еды
 let score = 0; // Счет
-let speed = 150; // Начальная скорость (мс)
+let speed = 300; // Начальная скорость (мс)
 let eatenCount = 0; // Счетчик съеденных букв
 
 
@@ -155,7 +156,31 @@ function collision(head, array) {
 
 
 
-// Добавим функцию для обновления текста в scoreCopy
+// Добавим функцию для обновления игры
+function startAgain() {
+    // Сбрасываем переменные
+    score = 0; // Счет
+    speed = 300; // Начальная скорость (мс)
+    eatenCount = 0; // Счетчик съеденных букв
+    direction = undefined; // Направление движения
+    snake = [{ x: 9 * box, y: 9 * box }]; // Начальная позиция змейки
+    eatenLetters = []; // Массив съеденных букв
+    // Генерируем начальную еду
+    food = generateFood();
+    // Обновляем отображение счета
+    updateScoreDisplay();
+    // Скрываем кнопку "Начать заново"
+    startAgainButton.classList.add("hidden");
+    // Запускаем игру заново
+    clearInterval(game); // Останавливаем текущий игровой цикл
+    game = setInterval(draw, speed); // Запускаем новый игровой цикл с новой скоростью
+}
+// Обработчик событий для кнопки "Начать заново"
+startAgainButton.addEventListener("click", startAgain);
+
+
+
+
 function updateScoreDisplay() {
     document.getElementById('scoreCopy').innerText = `How many did you eat? I ate : ${score}`;
 }
@@ -229,6 +254,7 @@ function draw() {
     // Проверка на столкновение со стенами с запасом в 1 блок
     if (snakeX < -box || snakeY < -box || snakeX >= canvas.width + box || snakeY >= canvas.height + box) {
         clearInterval(game);
+        startAgainButton.classList.remove("hidden")
         alert('Игра окончена! Вы сожрали: ' + score + ' letters');
     }
 
@@ -236,6 +262,8 @@ function draw() {
     // Проверка столкновения с телом змейки
     if (collision(newHead, snake)) {
         clearInterval(game);
+        startAgainButton.classList.remove("hidden")
+
         alert('Игра окончена! Вы сожрали: ' + score + ' letters');
     }
     snake.unshift(newHead); // Добавляем новую голову

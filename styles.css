@@ -6,6 +6,20 @@ body {
     align-items: center;
     background-color: #ccbebe; /* Цвет фона страницы */
 }
+
+.hidden{
+    display: none;
+}
+.startAgain {
+border-radius: 30px;
+height: 100px;
+width: 200px;
+background-color: greenyellow;
+position: absolute;
+top: 190px;
+font-size: 20px;
+
+}
 canvas {
     margin-top: 5px;
     border: 1px solid black;
