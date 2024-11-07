@@ -12,6 +12,7 @@ canvas {
     border: 1px solid black;
     background: linear-gradient(to bottom, #a0d8ef, #ffffff); /* Градиентный фон */
     border-radius: 20px;
+    text-align: center;
 }
 #letterContainer {
     margin-top: 10px;
@@ -20,19 +21,21 @@ canvas {
 #controls {
     margin: 10px;
     position: relative; /* Позволяет позиционировать кнопки */
-    width: 100px; /* Ширина контейнера */
-    height: 100px; /* Высота контейнера */
+    width: 150px; /* Ширина контейнера */
+    height: 150px; /* Высота контейнера */
     display: flex;
     justify-content: center; /* Центрирование горизонтальных кнопок */
     align-items: center; /* Центрирование вертикальных кнопок */
+    text-align: center;
 }
 .direction-button {
     background-color: #1b1b1b; /* Темный фон */
+    
     color: white; /* Белый текст */
     border: none; /* Без границ */
     border-radius: 50%; /* Круглая форма */
-    width: 40px; /* Ширина кнопки */
-    height: 40px; /* Высота кнопки */
+    width: 50px; /* Ширина кнопки */
+    height: 50px; /* Высота кнопки */
     font-size: 24px; /* Размер текста */
     cursor: pointer; /* Курсор при наведении */
     transition: background-color 0.3s; /* Плавный переход цвета фона */
