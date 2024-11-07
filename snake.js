@@ -29,36 +29,36 @@ function increaseSpeed() {
 const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ8903'.split('');
 // Объект для хранения аудиофайлов
 const audioFiles = {
-    A: new Audio('/sounds//a.mp3'),
-    B: new Audio('/sounds//b.mp3'),
-    C: new Audio('/sounds//c.mp3'),
-    D: new Audio('/sounds//d.mp3'),
-    E: new Audio('/sounds//e.mp3'),
-    F: new Audio('/sounds//f.mp3'),
-    G: new Audio('/sounds//g.mp3'),
-    H: new Audio('/sounds//h.mp3'),
-    I: new Audio('/sounds//i.mp3'),
-    J: new Audio('/sounds//j.mp3'),
-    K: new Audio('/sounds//k.mp3'),
-    L: new Audio('/sounds//l.mp3'),
-    M: new Audio('/sounds//m.mp3'),
-    N: new Audio('/sounds//n.mp3'),
-    O: new Audio('/sounds//o.mp3'),
-    P: new Audio('/sounds//p.mp3'),
-    Q: new Audio('/sounds//q.mp3'),
-    R: new Audio('/sounds//r.mp3'),
-    S: new Audio('/sounds//s.mp3'),
-    T: new Audio('/sounds//t.mp3'),
-    U: new Audio('/sounds//u.mp3'),
-    V: new Audio('/sounds//v.mp3'),
-    W: new Audio('/sounds//w.mp3'),
-    X: new Audio('/sounds//x.mp3'),
-    Y: new Audio('/sounds//y.mp3'),
-    Z: new Audio('/sounds//z.mp3'),
-    9: new Audio('/sounds//9.mp3'),
-    8: new Audio('/sounds//8.mp3'),
-    0: new Audio('/sounds//0.mp3'),
-    3: new Audio('/sounds//3.mp3'),
+    A: new Audio('sounds/a.mp3'),
+    B: new Audio('sounds/b.mp3'),
+    C: new Audio('sounds/c.mp3'),
+    D: new Audio('sounds/d.mp3'),
+    E: new Audio('sounds/e.mp3'),
+    F: new Audio('sounds/f.mp3'),
+    G: new Audio('sounds/g.mp3'),
+    H: new Audio('sounds/h.mp3'),
+    I: new Audio('sounds/i.mp3'),
+    J: new Audio('sounds/j.mp3'),
+    K: new Audio('sounds/k.mp3'),
+    L: new Audio('sounds/l.mp3'),
+    M: new Audio('sounds/m.mp3'),
+    N: new Audio('sounds/n.mp3'),
+    O: new Audio('sounds/o.mp3'),
+    P: new Audio('sounds/p.mp3'),
+    Q: new Audio('sounds/q.mp3'),
+    R: new Audio('sounds/r.mp3'),
+    S: new Audio('sounds/s.mp3'),
+    T: new Audio('sounds/t.mp3'),
+    U: new Audio('sounds/u.mp3'),
+    V: new Audio('sounds/v.mp3'),
+    W: new Audio('sounds/w.mp3'),
+    X: new Audio('sounds/x.mp3'),
+    Y: new Audio('sounds/y.mp3'),
+    Z: new Audio('sounds/z.mp3'),
+    9: new Audio('sounds/9.mp3'),
+    8: new Audio('sounds/8.mp3'),
+    3: new Audio('sounds/3.mp3'),
+    3: new Audio('sounds/3.mp3'),
     // Добавьте остальные буквы...
 };
 function playSound(letter) {
@@ -152,6 +152,15 @@ function collision(head, array) {
     }
     return false;
 }
+
+
+
+// Добавим функцию для обновления текста в scoreCopy
+function updateScoreDisplay() {
+    document.getElementById('scoreCopy').innerText = `How many did you eat? I ate : ${score}`;
+}
+
+
 // Основной игровой цикл
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -208,6 +217,8 @@ function draw() {
         }
         document.getElementById('letterContainer').innerText = eatenLetters.join(', '); // Обновляем контейнер
     } else {
+        updateScoreDisplay(); // Обновляем отображение счета
+
         snake.pop(); // Удаляем последний элемент, если не съели еду
     }
     
@@ -229,10 +240,12 @@ function draw() {
     }
     snake.unshift(newHead); // Добавляем новую голову
 
-    // Отображаем счет
-    ctx.fillStyle = 'black';
-    ctx.font = '20px Arial';
-    ctx.fillText('you ate : ' + score, 10, 20);
+    // Отображаем счет в канвасе
+
+    // ctx.fillStyle = 'black';
+    // ctx.font = '20px Arial';
+    // ctx.fillText('you ate : ' + score, 10, 20);
+
 }
 
 

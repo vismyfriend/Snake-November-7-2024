@@ -50,3 +50,7 @@ canvas {
 .direction-button:active {
     background-color: #5b5b5b; /* Еще светлее при нажатии */
 }
+.scoreCopy {
+    font-size: 20px;
+    margin-top: 5px;
+}
